@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-obsidian-vault",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n community node for self-hosted Obsidian Vault REST API (list, read, write, append, delete, search)",
   "keywords": [
     "n8n-community-node-package",

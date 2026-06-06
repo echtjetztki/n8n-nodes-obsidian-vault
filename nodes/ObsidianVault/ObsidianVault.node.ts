@@ -28,12 +28,6 @@ export class ObsidianVault implements INodeType {
 				required: true,
 			},
 		],
-		requestDefaults: {
-			baseURL: '={{$credentials.baseUrl}}',
-			headers: {
-				Accept: 'application/json',
-			},
-		},
 		properties: [
 			{
 				displayName: 'Resource',
@@ -206,6 +200,15 @@ export class ObsidianVault implements INodeType {
 		const items = this.getInputData();
 		const out: INodeExecutionData[] = [];
 
+		const creds = await this.getCredentials('obsidianVaultApi');
+		const baseUrl = String(creds.baseUrl ?? '').replace(/\/+$/, '');
+		if (!baseUrl) {
+			throw new NodeOperationError(
+				this.getNode(),
+				'Base URL is not set in the Obsidian Vault API credentials',
+			);
+		}
+
 		for (let i = 0; i < items.length; i++) {
 			const resource = this.getNodeParameter('resource', i) as string;
 			const operation = this.getNodeParameter('operation', i) as string;
@@ -273,7 +276,7 @@ export class ObsidianVault implements INodeType {
 					'obsidianVaultApi',
 					{
 						method,
-						url,
+						url: baseUrl + url,
 						qs,
 						body,
 						json: !rawResponse,
