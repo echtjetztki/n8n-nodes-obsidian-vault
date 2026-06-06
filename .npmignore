@@ -4,11 +4,14 @@
 .idea/
 node_modules/
 .tsbuildinfo
+dist/tsconfig.tsbuildinfo
+dist/package.json
 tsconfig.json
 gulpfile.js
 .eslintrc.js
 .editorconfig
 .prettierrc.js
+.npmrc
 nodes/**/*.ts
 credentials/**/*.ts
 *.log
