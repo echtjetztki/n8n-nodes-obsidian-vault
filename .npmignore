@@ -1,0 +1,15 @@
+.git/
+.github/
+.vscode/
+.idea/
+node_modules/
+.tsbuildinfo
+tsconfig.json
+gulpfile.js
+.eslintrc.js
+.editorconfig
+.prettierrc.js
+nodes/**/*.ts
+credentials/**/*.ts
+*.log
+.env

@@ -1,0 +1,65 @@
+{
+  "name": "n8n-nodes-obsidian-vault",
+  "version": "0.1.0",
+  "description": "n8n community node for self-hosted Obsidian Vault REST API (list, read, write, append, delete, search)",
+  "keywords": [
+    "n8n-community-node-package",
+    "obsidian",
+    "vault",
+    "markdown",
+    "notes",
+    "knowledge-management",
+    "second-brain"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/echtjetztki/n8n-nodes-obsidian-vault",
+  "author": {
+    "name": "EchtJetztKI",
+    "email": "support@echtjetztki.at",
+    "url": "https://echtjetztki.at"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echtjetztki/n8n-nodes-obsidian-vault.git"
+  },
+  "bugs": {
+    "url": "https://github.com/echtjetztki/n8n-nodes-obsidian-vault/issues"
+  },
+  "engines": {
+    "node": ">=18.10"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "lint": "eslint nodes credentials --ext .ts",
+    "lintfix": "eslint nodes credentials --ext .ts --fix",
+    "format": "prettier nodes credentials --write",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/ObsidianVaultApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/ObsidianVault/ObsidianVault.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^4.0.2",
+    "n8n-workflow": "^1.82.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
